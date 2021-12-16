@@ -10,6 +10,9 @@
 		01A4F04B276ADF7A002ECFFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4F04A276ADF7A002ECFFD /* AppDelegate.swift */; };
 		01A4F04D276ADF7B002ECFFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01A4F04C276ADF7B002ECFFD /* Assets.xcassets */; };
 		01A4F050276ADF7B002ECFFD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A4F04E276ADF7B002ECFFD /* MainMenu.xib */; };
+		01A4F058276ADFD9002ECFFD /* AudioInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4F057276ADFD9002ECFFD /* AudioInfo.swift */; };
+		01A4F05C276B08E3002ECFFD /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A4F05A276B08E3002ECFFD /* PreferencesWindowController.swift */; };
+		01A4F05D276B08E3002ECFFD /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01A4F05B276B08E3002ECFFD /* PreferencesWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +21,10 @@
 		01A4F04C276ADF7B002ECFFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01A4F04F276ADF7B002ECFFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		01A4F051276ADF7B002ECFFD /* HearingBuddy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HearingBuddy.entitlements; sourceTree = "<group>"; };
+		01A4F057276ADFD9002ECFFD /* AudioInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioInfo.swift; sourceTree = "<group>"; };
+		01A4F059276B0177002ECFFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		01A4F05A276B08E3002ECFFD /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		01A4F05B276B08E3002ECFFD /* PreferencesWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +57,11 @@
 		01A4F049276ADF7A002ECFFD /* HearingBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				01A4F059276B0177002ECFFD /* Info.plist */,
 				01A4F04A276ADF7A002ECFFD /* AppDelegate.swift */,
+				01A4F057276ADFD9002ECFFD /* AudioInfo.swift */,
+				01A4F05A276B08E3002ECFFD /* PreferencesWindowController.swift */,
+				01A4F05B276B08E3002ECFFD /* PreferencesWindowController.xib */,
 				01A4F04C276ADF7B002ECFFD /* Assets.xcassets */,
 				01A4F04E276ADF7B002ECFFD /* MainMenu.xib */,
 				01A4F051276ADF7B002ECFFD /* HearingBuddy.entitlements */,
@@ -116,6 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A4F05D276B08E3002ECFFD /* PreferencesWindowController.xib in Resources */,
 				01A4F04D276ADF7B002ECFFD /* Assets.xcassets in Resources */,
 				01A4F050276ADF7B002ECFFD /* MainMenu.xib in Resources */,
 			);
@@ -128,6 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A4F05C276B08E3002ECFFD /* PreferencesWindowController.swift in Sources */,
+				01A4F058276ADFD9002ECFFD /* AudioInfo.swift in Sources */,
 				01A4F04B276ADF7A002ECFFD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +285,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HearingBuddy/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -296,6 +311,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HearingBuddy/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
