@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         menu.addItem(NSMenuItem(title: "Quit", action: #selector(NSApp.terminate(_:)), keyEquivalent: ""))
         
         self.statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        self.statusItem.button?.title = "🦻💝"
+        self.statusItem.button?.title = UserDefaults.standard.bool(forKey: AppDelegate.ReduceLoudSoundsDefaultKey) ? "👂✅" : "👂❌"
         self.statusItem.menu = menu
     
         super.init()
@@ -98,6 +98,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         if let menuItem = self.statusItem.menu?.item(withTag: StatusMenuItemTag.currentOutputDevice.rawValue) {
             menuItem.title = "Playing from: \(AudioInfo.shared.currentOutputDevice()?.name ?? "Unknown")"
         }
+        self.statusItem.button?.title = UserDefaults.standard.bool(forKey: AppDelegate.ReduceLoudSoundsDefaultKey) ? "👂✅" : "👂❌"
         if UserDefaults.standard.bool(forKey: AppDelegate.ReduceLoudSoundsDefaultKey) && AudioInfo.shared.currentSystemOutputVolume() > UserDefaults.standard.reduceLoudSoundsLimit && AudioInfo.shared.outputDeviceAreHeadphonesOrBluetoothDevice().0 {
             NSSound.beep()
             _ = AudioInfo.shared.setSystemOutputVolume(Int32(UserDefaults.standard.reduceLoudSoundsLimit))
