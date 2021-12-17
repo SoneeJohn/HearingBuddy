@@ -11,6 +11,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     var statusItem: NSStatusItem
     var soundsLimitObserver: NSKeyValueObservation?
+    var pollingTimer: Timer?
     
     enum StatusMenuItemTag: Int {
         case reduceLoadSounds = 4000
@@ -52,8 +53,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         UserDefaults.standard.register(defaults: [AppDelegate.ReduceLoudSoundsDefaultKey : true, AppDelegate.ReduceLoudSoundsLimitDefaultKey : 25])
-        
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(systemAudioSettingsDidChange), name: Notification.Name("com.apple.sound.settingsChangedNotification"), object: nil)
+
+        self.pollingTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.timerDidFire), userInfo: nil, repeats: true)
+        self.pollingTimer?.fire()
         
         soundsLimitObserver = UserDefaults.standard.observe(\.reduceLoudSoundsLimit, options: [.new], changeHandler: { _, _ in
             self.reduceAudioIfNeeded()
@@ -73,7 +75,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuItemValidation {
         return true
     }
     
-    @objc func systemAudioSettingsDidChange () {
+    @objc func timerDidFire () {
         reduceAudioIfNeeded()
     }
     
